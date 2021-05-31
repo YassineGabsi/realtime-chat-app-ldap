@@ -32,8 +32,8 @@ export default class LoginForm extends Component {
       <div className="chatapp__form--container">
         <div className="chatapp__form--modal">
             <form onSubmit={this.handleSubmit}>
-              <input onChange={this.handleChange} name="username" type="text" label="Username" placeholder="&#xf2c0; Username"/>
-              <input onChange={this.handleChange} name="password" type="password" label="Password" placeholder="&#xf13e;  Password"/>
+              <input onChange={this.handleChange} name="username" type="text" label="Username" placeholder="Username"/>
+              <input onChange={this.handleChange} name="password" type="password" label="Password" placeholder="Password"/>
               {
                 (this.props.loginError.length)
                   ? <Alert 

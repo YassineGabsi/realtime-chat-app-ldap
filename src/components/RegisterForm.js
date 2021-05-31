@@ -36,8 +36,8 @@ export default class RegisterForm extends Component {
       <div className="chatapp__form--container">
         <div className="chatapp__form--modal">
           <form onSubmit={this.handleSubmit}>
-            <input onChange={this.handleChange} name="username" type="text" label="Username" placeholder="&#xf2c0; Enter a Username"/>
-            <input onChange={this.handleChange} name="password" type="password" label="Password" placeholder="&#xf13e; Enter a password"/>
+            <input onChange={this.handleChange} name="username" type="text" label="Username" placeholder=" Enter a Username"/>
+            <input onChange={this.handleChange} name="password" type="password" label="Password" placeholder=" Enter a password"/>
             <input onChange={this.handleChange} name="email" type="email" label="Email" placeholder="Enter your email"/>
             <input onChange={this.handleChange} name="card" type="card" label="Card" placeholder="Enter your card number"/>
             <input onChange={this.handleChange} name="name" type="name" label="Password" placeholder="Enter your name"/>
