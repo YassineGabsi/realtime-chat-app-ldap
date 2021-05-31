@@ -7,8 +7,8 @@ const ChatSelector = (props) => {
     <div className="chatapp__form--container">
       <div className="chatapp__form--guest">
         <h3>Guest Login</h3> 
-        <p>You can either login, register or enter as a guest</p> 
-        <p>Guests cannot change channels or private message other users</p>
+        {/*<p>You can either login, register or enter as a guest</p> */}
+        {/*<p>Guests cannot change channels or private message other users</p>*/}
         <form onSubmit={guestLogin}>
           <input onChange={handleChange} type="text" name="guestSignup" placeholder="Enter a Guest Name" label="Enter a Guest Name"/>
           <button>Enter</button>
