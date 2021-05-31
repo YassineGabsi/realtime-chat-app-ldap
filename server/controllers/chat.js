@@ -211,7 +211,7 @@ exports.getConversations = async function (req, res, next) {
 // Using the conversation id, a reply is made with a new message with the same conversation Id
 exports.sendReply = async function(req, res, next) {
   const privateMessage = req.body.privateMessageInput;
-  const { encryptedRecipientMessage, encryptedAuthorMessage } = req.body;
+  // const { encryptedRecipientMessage, encryptedAuthorMessage } = req.body;
   const recipientId = req.body.recipientId;
   const username = req.user.sn;
   const user = await User.findOne({username: username});
@@ -231,8 +231,8 @@ exports.sendReply = async function(req, res, next) {
 
     const reply = new Message({
       conversationId: foundConversation._id,
-      encryptedRecipientMessage,
-      encryptedAuthorMessage,
+      // encryptedRecipientMessage,
+      // encryptedAuthorMessage,
       body: privateMessage,
       author: {
         kind: 'User',
@@ -280,7 +280,7 @@ exports.getPrivateMessages =  async function(req, res, next) {
     }
 
     Message.find({ conversationId: foundConversation._id })
-    .select('createdAt body encryptedRecipientMessage encryptedAuthorMessage author')
+    .select('createdAt body author')
     .sort('-createdAt')
     .populate('author.item')
     .exec(function(err, message) {

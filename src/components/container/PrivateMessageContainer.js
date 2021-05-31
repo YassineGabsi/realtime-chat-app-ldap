@@ -43,24 +43,26 @@ export default class PrivateMessagingContainer extends Component {
     const privateMessageInput = this.state.privateMessageInput;
     const recipientId = this.props.currentPrivateRecipient._id;
     const recipientUsername = this.props.currentPrivateRecipient.username;
-    const myKey = forge.pki.publicKeyFromPem(localStorage.getItem('pubKey'));
-    const recipientKey = forge.pki.publicKeyFromPem(localStorage.getItem('pub-' + recipientUsername));
-    const encryptedAuthorMessage = myKey.encrypt(privateMessageInput);
-    const encryptedRecipientMessage = recipientKey.encrypt(privateMessageInput);
-    axios.post(`${API_URL}/chat/reply`, { encryptedRecipientMessage, encryptedAuthorMessage, privateMessageInput, recipientId }, {
+    // const myKey = forge.pki.publicKeyFromPem(localStorage.getItem('pubKey'));
+    // const recipientKey = forge.pki.publicKeyFromPem(localStorage.getItem('pub-' + recipientUsername));
+    // const encryptedAuthorMessage = myKey.encrypt(privateMessageInput);
+    // const encryptedRecipientMessage = recipientKey.encrypt(privateMessageInput);
+    axios.post(`${API_URL}/chat/reply`, { privateMessageInput, recipientId }, {
       headers: { Authorization: this.props.token }
     })
     .then(res => {
       const socketMsg = {
-        encryptedRecipientMessage: res.data.reply.encryptedRecipientMessage,
-        encryptedAuthorMessage: res.data.reply.encryptedAuthorMessage,
+        // encryptedRecipientMessage: res.data.reply.encryptedRecipientMessage,
+        // encryptedAuthorMessage: res.data.reply.encryptedAuthorMessage,
+        body: privateMessageInput,
         conversationId: res.data.reply.conversationId,
         author:[{
           item:{
             username: this.props.username
           }
         }]
-      }
+      };
+      console.log(socketMsg);
       socket.emit('new privateMessage', socketMsg);
 
       this.setState({
