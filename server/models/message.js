@@ -6,8 +6,8 @@ const MessageSchema = new Schema({
     type: Schema.Types.ObjectId,
     required: true
   },
-  encryptedRecipientMessage: { type: String },
-  encryptedAuthorMessage: { type: String },
+  // encryptedRecipientMessage: { type: String },
+  // encryptedAuthorMessage: { type: String },
   body: {
     type: String
   },

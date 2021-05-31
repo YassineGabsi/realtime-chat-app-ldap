@@ -92,10 +92,10 @@ export default class PrivateMessaging extends Component{
     this.stopCheckTyping();
   }
 
-  decrypt(message) {
-    const myKey = forge.pki.privateKeyFromPem(localStorage.getItem('priKey'));
-    return myKey.decrypt(message);
-  }
+  // decrypt(message) {
+  //   const myKey = forge.pki.privateKeyFromPem(localStorage.getItem('priKey'));
+  //   return myKey.decrypt(message);
+  // }
 
   render() {
     const { handlePrivateInput, handlePrivateSubmit, closePM, currentPrivateRecipient, privateMessageLog, socketPMs, privateMessageInput, showTyping, activeUserTyping, username } = this.props;
@@ -121,8 +121,8 @@ export default class PrivateMessaging extends Component{
                             <p className="speech--bubble--date">{Moment(message.createdAt).fromNow()}</p>
                           </div>
                           <div className="speech--bubble">
-                            {/*<p>{message.body}</p>*/}
-                            <p>{(username === message.author[0].item.username) ? this.decrypt(message.encryptedAuthorMessage): this.decrypt(message.encryptedRecipientMessage)}</p>
+                            <p>{message.body}</p>
+                            {/* <p>{message.privateMessageInput}</p> */}
                           </div>
                         </li>
                       )
@@ -145,8 +145,8 @@ export default class PrivateMessaging extends Component{
                           <p className="speech--bubble--date">{Moment(message.createdAt).fromNow()}</p>
                         </div>
                         <div className="speech--bubble">
-                          {/*<p>{message.body}</p>*/}
-                          <p>{(username === message.author[0].item.username) ? this.decrypt(message.encryptedAuthorMessage): this.decrypt(message.encryptedRecipientMessage)}</p>
+                          <p>{message.body}</p>
+                          {/* <p>{message.privateMessageInput}</p> */}
                         </div>
                       </li>
                     )
