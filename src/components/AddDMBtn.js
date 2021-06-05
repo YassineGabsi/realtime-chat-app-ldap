@@ -23,7 +23,7 @@ closeMenu = () => {
     return (
       <div className="channel__add--popup">
         {
-          (this.state.showMenu)
+          (!this.state.showMenu)
             ? <div>
               {
                 (directMessageErrorLog.length)
@@ -35,9 +35,9 @@ closeMenu = () => {
               }
               <div className="channel__search">
                 <form onSubmit={startConversation}>
-                  <input onChange={handleChange} type="text" name="startDmInput" placeholder="&#xf002; Recipient name"/>
+                  <input onChange={handleChange} type="text" name="startDmInput" placeholder="Name"/>
                 </form>
-                <button className="close__btn" onClick={this.closeMenu}>&#xf057;</button>
+                {/*<button className="close__btn" onClick={this.closeMenu}>&#xf057;</button>*/}
               </div>
               </div>
             : <button className="add__btn" onClick={this.handleClick}>&#xf055;</button>

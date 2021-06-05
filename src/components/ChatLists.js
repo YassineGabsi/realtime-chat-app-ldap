@@ -15,7 +15,7 @@ export default class ChatLists extends Component {
     return (
       <div className="chatapp__userpanel--container">
         <div className="userpanel__channels--container">
-          <div className="userpanel__channels--add">
+          <div className="userpanel__channels--add d-flex flex-column">
             <p>Private Messages</p>
             <AddDMBtn 
             {...this.props}

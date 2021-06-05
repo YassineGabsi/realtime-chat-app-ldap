@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Alert from './Alert';
+import LoginPhoto from '../assets/login.jpg'
 
 
 
@@ -31,19 +32,27 @@ export default class LoginForm extends Component {
     return (
       <div className="chatapp__form--container">
         <div className="chatapp__form--modal">
-            <form onSubmit={this.handleSubmit}>
-              <input onChange={this.handleChange} name="username" type="text" label="Username" placeholder="Username"/>
-              <input onChange={this.handleChange} name="password" type="password" label="Password" placeholder="Password"/>
-              {
-                (this.props.loginError.length)
-                  ? <Alert 
-                      header="Login Error has happened"
-                      content="Must enter a valid Username or password."
-                    />
-                  : null
-              }
-              <button>Login</button>
-            </form>
+          <div className="row">
+            <div className="col-6 d-flex align-items-center justify-content-center login-form-container">
+              <form onSubmit={this.handleSubmit}>
+                <input onChange={this.handleChange} name="username" type="text" label="Username" placeholder="Username"/>
+                <input onChange={this.handleChange} name="password" type="password" label="Password" placeholder="Password"/>
+                {
+                  (this.props.loginError.length)
+                      ? <Alert
+                          header="Login Error has happened"
+                          content="Must enter a valid Username or password."
+                      />
+                      : null
+                }
+                <button>Login</button>
+              </form>
+            </div>
+            <div className="col-6 text-center">
+              <img className="img-fluid photo-login" src={LoginPhoto} alt=""/>
+
+            </div>
+          </div>
         </div>
       </div>
     )

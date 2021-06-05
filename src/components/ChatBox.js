@@ -35,7 +35,6 @@ export default class ChatBox extends Component {
           }
           <div className="chatapp__chatbox">
             <div className="chatapp__chatbox--messages" ref="chat_container">
-              <img className="img-good" src={background} alt="not found"/>
             </div>
           </div>
         </div>
